@@ -3,11 +3,11 @@ import React from "react";
 import { BallClipRotateMultiple } from "react-pure-loaders";
 import useCommon from "../../../hooks/common";
 
-export default function Loading() {
+export default function LookScreen() {
   const theme = useTheme();
-  const { isLoading } = useCommon();
+  const { isLockScreen } = useCommon();
   return (
-    <Backdrop open={isLoading} sx={{ zIndex: 1000 }}>
+    <Backdrop open={isLockScreen} sx={{ zIndex: 1000 }}>
       <Box
         position='fixed'
         top='50%'
@@ -15,11 +15,7 @@ export default function Loading() {
         sx={{
           transform: "translate(-50%,-50%)",
         }}
-      >
-        <Box sx={{ transform: "scale(2.5)" }}>
-          <BallClipRotateMultiple color={theme.palette.primary.main} loading={true} />
-        </Box>
-      </Box>
+      ></Box>
     </Backdrop>
   );
 }

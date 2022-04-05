@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import useTodo from "../../hooks/todo.hook";
 
-type Props = {};
+const Home = () => {
+  const { getTodoList } = useTodo();
+  useEffect(() => {
+    getTodoList({ successCallback: () => {}, errorCallback: () => {} });
+  }, [getTodoList]);
 
-const Home = (props: Props) => {
   return (
     <div>
       {/* <Loading /> */}

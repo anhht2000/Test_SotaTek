@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MessageDialogPayload } from "../../models/common.model";
 import { RootState } from "../store";
 
 const initialState: any = {
@@ -14,31 +13,28 @@ const initialState: any = {
 };
 
 const commonSlice = createSlice({
-  name: "auth",
+  name: "common",
   initialState,
   reducers: {
     fetchWithLock: (state, payload) => {
       state.isLoading = true;
     },
-    fetchWithLockSuccess: (state, payload) => {
-      state.isLoading = false;
-    },
-    fetchWithoutLock: (state, payload) => {
+    fetchWithoutLock: (state) => {
       state.isLoading = true;
     },
-    fetchWithoutLockSuccess: (state, payload) => {
-      state.isLoading = false;
+    setIsLoading: (state, { payload }) => {
+      state.isLoading = payload;
     },
     lockScreen: (state) => {
       state.isLockScreen = true;
     },
     unLockScreen: (state) => {
-      state.isLockScreen = true;
+      state.isLockScreen = false;
     },
-    messageDialog: (state, payload) => {
+    changeMessageDialog: (state, { payload }) => {
       state.messageDialog = { ...payload };
     },
-    confirmDialog: (state, payload) => {
+    changeConfirmDialog: (state, { payload }) => {
       state.confirmDialog = { ...payload };
     },
   },
@@ -47,17 +43,13 @@ const commonSlice = createSlice({
 //action
 export const {
   fetchWithLock,
-  fetchWithLockSuccess,
   fetchWithoutLock,
-  fetchWithoutLockSuccess,
+  setIsLoading,
   lockScreen,
   unLockScreen,
-  messageDialog,
-  confirmDialog,
+  changeMessageDialog,
+  changeConfirmDialog,
 } = commonSlice.actions;
-
-// selector
-export const isLoading = (state: RootState) => state.common.isLoading;
 
 // reducer
 const commonReducer = commonSlice.reducer;

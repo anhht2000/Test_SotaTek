@@ -1,12 +1,13 @@
-import { confirmDialog, isLoading, lockScreen, messageDialog, unLockScreen } from "./../redux/reducers/common.reducer";
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ConfirmDialogData, MessageDialogParams } from "../models/common.model";
+import { RootState } from "../redux/store";
+import { changeConfirmDialog, lockScreen, changeMessageDialog, unLockScreen } from "./../redux/reducers/common.reducer";
 
 const useCommon = () => {
   const dispatch = useDispatch();
-  const commonState = useSelector(isLoading);
+  const commonState = useSelector((state: RootState) => state.common);
 
   /**
    * openLockScreen
@@ -31,7 +32,7 @@ const useCommon = () => {
   const showMessage = useCallback(
     (params: MessageDialogParams): void => {
       dispatch(
-        messageDialog({
+        changeMessageDialog({
           open: true,
           data: params,
         })
@@ -45,7 +46,7 @@ const useCommon = () => {
    */
   const closeMessage = useCallback(() => {
     dispatch(
-      messageDialog({
+      changeMessageDialog({
         open: false,
       })
     );
@@ -57,7 +58,7 @@ const useCommon = () => {
   const showConfirm = useCallback(
     (data: ConfirmDialogData) => {
       dispatch(
-        confirmDialog({
+        changeConfirmDialog({
           open: true,
           data,
         })
@@ -71,7 +72,7 @@ const useCommon = () => {
    */
   const closeConfirm = useCallback(() => {
     dispatch(
-      confirmDialog({
+      changeConfirmDialog({
         open: false,
       })
     );

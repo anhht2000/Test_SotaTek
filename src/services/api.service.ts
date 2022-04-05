@@ -1,15 +1,20 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import { RequestConfig } from "../models/fetcher.model";
 
 // axios instance
 const axiosInstance = axios.create({
-  baseURL: process.env.baseUrl,
+  // baseURL: process.env.baseUrl,
+  baseURL: "https://jsonplaceholder.typicode.com",
+  headers: {
+    "Content-type": "application/json",
+  },
 });
 // const unCheckList: string[] = [];
 
 // axios request interceptors
 axiosInstance.interceptors.request.use(
   async (config: AxiosRequestConfig) => {
-    const url = config.url || "";
+    // const url = config.url || "";
 
     // if (!unCheckList.includes(url)) {
     //   // get auth info
@@ -28,7 +33,7 @@ axiosInstance.interceptors.request.use(
   },
 
   (error) => {
-    Promise.reject(error);
+    Promise.reject(error.response);
   }
 );
 
@@ -38,8 +43,12 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error: AxiosError) => {
-    return Promise.reject(error);
+    return Promise.reject(error.response);
   }
 );
+
+export const fetch = (request: RequestConfig): Promise<Response> => {
+  return axiosInstance.request(request);
+};
 
 export default axiosInstance;
