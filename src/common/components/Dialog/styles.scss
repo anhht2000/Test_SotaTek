@@ -9,9 +9,10 @@
 
   .dialog {
     background-color: #fff;
-    padding: 2px 30px;
+    padding: 2px 20px;
     border-radius: 8px;
-    // width: 400px;
+    min-width: 300px;
+    width: auto;
 
     .title {
       padding-top: 16px;
@@ -46,6 +47,10 @@
         margin: 0 4px;
         max-width: 33%;
         border-radius: 50px;
+
+        button {
+          border-radius: 50px;
+        }
       }
     }
   }
