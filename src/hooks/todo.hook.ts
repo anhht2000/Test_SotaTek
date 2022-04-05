@@ -19,7 +19,7 @@ const useTodo = () => {
       try {
         const method = "GET";
 
-        dispatch(fetchWithLock({ data: { url: "API.TODO", data, method }, successCallback, errorCallback }));
+        dispatch(fetchWithLock({ data: { url: API.TODO, data, method }, successCallback, errorCallback }));
       } catch (error: any) {
         errorCallback && errorCallback(error);
       }

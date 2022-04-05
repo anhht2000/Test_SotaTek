@@ -45,7 +45,7 @@ const MessageDialog = () => {
         <Card className='d-flex flex-column col-12 col-sm-12 col-xl-3 dialog message-dialog'>
           {messageDialog.data?.title && <label className='title'>{messageDialog.data?.title}</label>}
 
-          <div className='d-flex flex-row align-items-center content'>
+          <div className='d-flex flex-row  align-items-center content'>
             <div className='logo'>{Icon}</div>
             <label>{messageDialog.data?.message}</label>
           </div>

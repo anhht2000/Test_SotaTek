@@ -9,8 +9,9 @@
 
   .dialog {
     background-color: #fff;
-    padding: 0 16px;
+    padding: 2px 30px;
     border-radius: 8px;
+    // width: 400px;
 
     .title {
       padding-top: 16px;
@@ -44,6 +45,7 @@
         flex: 1;
         margin: 0 4px;
         max-width: 33%;
+        border-radius: 50px;
       }
     }
   }

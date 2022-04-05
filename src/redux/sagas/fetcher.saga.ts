@@ -11,7 +11,7 @@ function* handleFetcher({ payload }: { payload: FetcherRequest }): any {
   // call axios for request
   try {
     const response: Promise<Response> = yield call(fetch, data);
-    console.log("resasdasd", response);
+    console.log(response);
 
     const dataResponse: SuccessResponse<any> = {
       status: 0,
