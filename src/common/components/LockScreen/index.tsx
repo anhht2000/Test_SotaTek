@@ -7,13 +7,13 @@ export default function LookScreen() {
   return (
     <Backdrop open={isLockScreen} sx={{ zIndex: 1000 }}>
       <Box
-        position='fixed'
-        top='50%'
-        left='50%'
+        position="fixed"
+        top="50%"
+        left="50%"
         sx={{
           transform: "translate(-50%,-50%)",
         }}
-      ></Box>
+      />
     </Backdrop>
   );
 }

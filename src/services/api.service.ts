@@ -13,7 +13,7 @@ const axiosInstance = axios.create({
 
 // axios request interceptors
 axiosInstance.interceptors.request.use(
-  async (config: AxiosRequestConfig) => {
+  async (config: AxiosRequestConfig) =>
     // const url = config.url || "";
 
     // if (!unCheckList.includes(url)) {
@@ -29,9 +29,7 @@ axiosInstance.interceptors.request.use(
     //   (config.headers as any)["Authorization"] = token || "";
     // }
 
-    return config;
-  },
-
+    config,
   (error) => {
     Promise.reject(error.response);
   }
@@ -39,16 +37,10 @@ axiosInstance.interceptors.request.use(
 
 // axios response interceptors
 axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error: AxiosError) => {
-    return Promise.reject(error.response);
-  }
+  (response) => response,
+  async (error: AxiosError) => Promise.reject(error.response)
 );
 
-export const fetch = (request: RequestConfig): Promise<Response> => {
-  return axiosInstance.request(request);
-};
+export const fetch = (request: RequestConfig): Promise<Response> => axiosInstance.request(request);
 
 export default axiosInstance;

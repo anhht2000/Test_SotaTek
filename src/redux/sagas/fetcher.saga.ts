@@ -1,11 +1,17 @@
+/* eslint-disable no-console */
 import { call, put, takeLatest } from "redux-saga/effects";
 import { FetcherRequest, SuccessResponse } from "../../models/fetcher.model";
 import { fetch } from "../../services/api.service";
-import { changeMessageDialog, fetchWithLock, lockScreen, setIsLoading, unLockScreen } from "../reducers/common.reducer";
+import {
+  changeMessageDialog,
+  fetchWithLock,
+  lockScreen,
+  setIsLoading,
+  unLockScreen,
+} from "../reducers/common.reducer";
 
 function* handleFetcher({ payload }: { payload: FetcherRequest }): any {
   yield put(lockScreen());
-
   // get parameters in payload
   const { data, successCallback, errorCallback } = payload;
   // call axios for request
@@ -58,7 +64,7 @@ function* handleFetcher({ payload }: { payload: FetcherRequest }): any {
       );
     }
 
-    //error callback
+    // error callback
     errorCallback && errorCallback(response);
     // end process
     return;

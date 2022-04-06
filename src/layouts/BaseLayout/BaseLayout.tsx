@@ -6,29 +6,27 @@ interface BaseLayoutProps {
   children?: ReactNode;
 }
 
-const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
-  return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/courses'>Courses</Link>
-          </li>
-          <li>
-            <Link to='/nothing-here'>Nothing Here</Link>
-          </li>
-        </ul>
-      </nav>
+const BaseLayout: FC<BaseLayoutProps> = ({ children }) => (
+  <div>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/courses">Courses</Link>
+        </li>
+        <li>
+          <Link to="/nothing-here">Nothing Here</Link>
+        </li>
+      </ul>
+    </nav>
 
-      <hr />
+    <hr />
 
-      {children || <Outlet />}
-    </div>
-  );
-};
+    {children || <Outlet />}
+  </div>
+);
 
 BaseLayout.propTypes = {
   children: PropTypes.node,

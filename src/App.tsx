@@ -9,7 +9,7 @@ import routes from "./router";
 import theme from "./themes";
 
 function App() {
-  let element = useRoutes(routes);
+  const element = useRoutes(routes);
   return (
     <ThemeProvider theme={theme}>
       {element}

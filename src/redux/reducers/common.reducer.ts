@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: any = {
@@ -18,7 +19,7 @@ const commonSlice = createSlice({
     fetchWithLock: (state, payload) => {
       state.isLoading = true;
     },
-    fetchWithoutLock: (state) => {
+    fetchWithoutLock: (state, payload) => {
       state.isLoading = true;
     },
     setIsLoading: (state, { payload }) => {
@@ -39,7 +40,7 @@ const commonSlice = createSlice({
   },
 });
 
-//action
+// action
 export const {
   fetchWithLock,
   fetchWithoutLock,

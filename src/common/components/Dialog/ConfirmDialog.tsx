@@ -6,9 +6,8 @@ import React, { useCallback, useMemo } from "react";
 import useCommon from "../../../hooks/common";
 import "./styles.scss";
 
-type Props = {};
 
-const ConfirmDialog = (props: Props) => {
+const ConfirmDialog = () => {
   const { confirmDialog, closeConfirm } = useCommon();
 
   /**
@@ -34,41 +33,41 @@ const ConfirmDialog = (props: Props) => {
 
     switch (iconType) {
       case "INFO":
-        return <InfoOutlinedIcon className='icon text-success' />;
+        return <InfoOutlinedIcon className="icon text-success" />;
       case "WARNING":
-        return <WarningAmberOutlinedIcon className='icon text-warning' />;
+        return <WarningAmberOutlinedIcon className="icon text-warning" />;
       case "ERROR":
-        return <ErrorOutlineOutlinedIcon className='icon text-danger' />;
+        return <ErrorOutlineOutlinedIcon className="icon text-danger" />;
     }
   }, [confirmDialog.data?.type]);
 
   return useMemo(
     () => (
-      <Modal open={confirmDialog.open} className='dialog-container'>
-        <Card className='d-flex flex-column col-12 col-sm-12 col-xl-3 dialog confirm-dialog'>
-          {confirmDialog.data?.title && <label className='title text-center'>{confirmDialog.data?.title}</label>}
+      <Modal open={confirmDialog.open} className="dialog-container">
+        <Card className="d-flex flex-column col-12 col-sm-12 col-xl-3 dialog confirm-dialog">
+          {confirmDialog.data?.title && (
+            <label className="title text-center">{confirmDialog.data?.title}</label>
+          )}
 
-          <div className='d-flex flex-row align-items-center content'>
-            <div className='logo'>{Icon}</div>
+          <div className="d-flex flex-row align-items-center content">
+            <div className="logo">{Icon}</div>
             <label>{confirmDialog.data?.message}</label>
           </div>
 
-          <div className='d-flex justify-content-center align-items-center footer'>
-            {(confirmDialog.data?.actions || []).map((item: any, index: number) => {
-              return (
-                <div key={index} className='w-100 override button'>
-                  <Button
-                    variant='outlined'
-                    className={"w-100 button" + item.className}
-                    onClick={wrapperAction(item.action)}
-                  >
-                    {item.label}
-                  </Button>
-                </div>
-              );
-            })}
+          <div className="d-flex justify-content-center align-items-center footer">
+            {(confirmDialog.data?.actions || []).map((item: any, index: number) => (
+              <div key={index} className="w-100 override button">
+                <Button
+                  variant="outlined"
+                  className={`w-100 button${item.className}`}
+                  onClick={wrapperAction(item.action)}
+                >
+                  {item.label}
+                </Button>
+              </div>
+            ))}
             {(confirmDialog.data?.actions || []).length <= 0 && (
-              <Button variant='outlined' className='button' onClick={wrapperAction()}>
+              <Button variant="outlined" className="button" onClick={wrapperAction()}>
                 OK
               </Button>
             )}

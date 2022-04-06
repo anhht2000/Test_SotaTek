@@ -31,34 +31,42 @@ const MessageDialog = () => {
 
     switch (iconType) {
       case "INFO":
-        return <InfoOutlinedIcon className='icon text-success' />;
+        return <InfoOutlinedIcon className="icon text-success" />;
       case "WARNING":
-        return <WarningAmberOutlinedIcon className='icon text-warning' />;
+        return <WarningAmberOutlinedIcon className="icon text-warning" />;
       case "ERROR":
-        return <ErrorOutlineOutlinedIcon className='icon text-danger' />;
+        return <ErrorOutlineOutlinedIcon className="icon text-danger" />;
     }
   }, [messageDialog.data?.type]);
 
   return useMemo(
     () => (
-      <Modal open={messageDialog.open} className='dialog-container'>
-        <Card className='d-flex flex-column col-12 col-sm-12 col-xl-3 dialog message-dialog'>
-          {messageDialog.data?.title && <label className='title'>{messageDialog.data?.title}</label>}
+      <Modal open={messageDialog.open} className="dialog-container">
+        <Card className="d-flex flex-column col-12 col-sm-12 col-xl-3 dialog message-dialog">
+          {messageDialog.data?.title && (
+            <label className="title">{messageDialog.data?.title}</label>
+          )}
 
-          <div className='d-flex flex-row  align-items-center content'>
-            <div className='logo'>{Icon}</div>
+          <div className="d-flex flex-row  align-items-center content">
+            <div className="logo">{Icon}</div>
             <label>{messageDialog.data?.message}</label>
           </div>
 
-          <div className='d-flex justify-content-center align-items-center footer'>
-            <Button variant='outlined' className='button' onClick={onOkButtonHandler}>
+          <div className="d-flex justify-content-center align-items-center footer">
+            <Button variant="outlined" className="button" onClick={onOkButtonHandler}>
               OK
             </Button>
           </div>
         </Card>
       </Modal>
     ),
-    [Icon, messageDialog.data?.message, messageDialog.data?.title, messageDialog.open, onOkButtonHandler]
+    [
+      Icon,
+      messageDialog.data?.message,
+      messageDialog.data?.title,
+      messageDialog.open,
+      onOkButtonHandler,
+    ]
   );
 };
 

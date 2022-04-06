@@ -3,7 +3,12 @@ import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ConfirmDialogData, MessageDialogParams } from "../models/common.model";
 import { RootState } from "../redux/store";
-import { changeConfirmDialog, lockScreen, changeMessageDialog, unLockScreen } from "./../redux/reducers/common.reducer";
+import {
+  changeConfirmDialog,
+  lockScreen,
+  changeMessageDialog,
+  unLockScreen,
+} from "../redux/reducers/common.reducer";
 
 const useCommon = () => {
   const dispatch = useDispatch();
@@ -88,7 +93,15 @@ const useCommon = () => {
       closeLockScreen,
       ...commonState,
     }),
-    [closeConfirm, closeLockScreen, closeMessage, commonState, openLockScreen, showConfirm, showMessage]
+    [
+      closeConfirm,
+      closeLockScreen,
+      closeMessage,
+      commonState,
+      openLockScreen,
+      showConfirm,
+      showMessage,
+    ]
   );
 };
 

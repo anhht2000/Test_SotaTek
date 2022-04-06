@@ -9,15 +9,15 @@ export default function Loading() {
   return (
     <Backdrop open={isLoading} sx={{ zIndex: 1000 }}>
       <Box
-        position='fixed'
-        top='50%'
-        left='50%'
+        position="fixed"
+        top="50%"
+        left="50%"
         sx={{
           transform: "translate(-50%,-50%)",
         }}
       >
         <Box sx={{ transform: "scale(2.5)" }}>
-          <BallClipRotateMultiple color={theme.palette.primary.main} loading={true} />
+          <BallClipRotateMultiple color={theme.palette.primary.main} loading />
         </Box>
       </Box>
     </Backdrop>

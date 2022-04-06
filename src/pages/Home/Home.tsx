@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 import React, { useEffect } from "react";
 import useCommon from "../../hooks/common";
 import useTodo from "../../hooks/todo.hook";
 
-const Home = () => {
+function Home() {
   const { getTodoList } = useTodo();
   const { showConfirm } = useCommon();
   useEffect(() => {
@@ -43,6 +44,6 @@ const Home = () => {
       Home
     </div>
   );
-};
+}
 
 export default Home;
