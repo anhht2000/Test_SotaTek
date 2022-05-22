@@ -14,6 +14,7 @@ const Loader = (Component: any) =>
 const Login = Loader(lazy((): any => import("./pages/Login")));
 const Home = Loader(lazy((): any => import("./pages/Home")));
 const PageNotFound = Loader(lazy((): any => import("./pages/PageNotFound")));
+const TodoList = Loader(lazy((): any => import("./pages/TodoList")));
 
 const routes: RouteObject[] = [
   {
@@ -22,12 +23,12 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <TodoList />,
       },
-      {
-        path: "/login",
-        element: <Login />,
-      },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
+      // },
       { path: "*", element: <PageNotFound /> },
     ],
   },

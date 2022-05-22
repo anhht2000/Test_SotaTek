@@ -8,7 +8,7 @@ interface BaseLayoutProps {
 
 const BaseLayout: FC<BaseLayoutProps> = ({ children }) => (
   <div>
-    <nav>
+    {/* <nav>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -22,7 +22,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => (
       </ul>
     </nav>
 
-    <hr />
+    <hr /> */}
 
     {children || <Outlet />}
   </div>

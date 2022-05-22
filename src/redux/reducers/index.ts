@@ -2,15 +2,17 @@ import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import commonReducer from "./common.reducer";
+import todoReducer from "./todo.reducer";
 
-const persistConfigAuth = {
-  key: "auth",
+const persistConfigTodo = {
+  key: "todo",
   storage,
-  whitelist: ["isLogin", "user"],
+  whitelist: ["todos"],
 };
 
 const rootReducer = combineReducers({
-  common: persistReducer(persistConfigAuth, commonReducer),
+  common: commonReducer,
+  todo: persistReducer(persistConfigTodo, todoReducer),
 });
 
 export default rootReducer;

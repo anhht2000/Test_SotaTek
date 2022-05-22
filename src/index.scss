@@ -1,13 +1,78 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.MuiTypography-root {
+  font-family: "Muli", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.15rem !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: unset;
+}
+
+.MuiOutlinedInput-input {
+  margin: 0 !important;
+  padding: 4px 0 5px !important;
+  border: 0 !important;
+  box-sizing: content-box;
+  background: none !important;
+  height: 1.4375em !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+  padding-top: 1px !important;
+  padding: 8.5px 14px !important;
+
+  &:focus {
+    border: 0 !important;
+    box-shadow: unset !important;
+  }
+}
+
+.MuiOutlinedInput-root {
+  legend {
+    display: none;
+  }
+}
+
+.MuiFormLabel-asterisk {
+  color: red;
+}
+
+.MuiMenu-list {
+  max-height: 300px !important;
+}
+
+.MuiGrid-item {
+  padding-top: 0 !important;
+}
+
+.MuiButtonBase-root {
+  width: unset;
+}
+
+.PrivatePickersFadeTransitionGroup-root {
+  font-size: 0.8rem !important;
 }
